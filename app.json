@@ -1,6 +1,6 @@
 {
-  "id": "ff678d56-7cd9-4757-9cd3-fc3c0b2202ab",
-  "name": "ALProject1_0920",
+  "id": "a8709944-e2c7-407c-b98a-8f17f392a501",
+  "name": "ALProject1",
   "publisher": "Default publisher",
   "version": "1.0.0.0",
   "brief": "",
@@ -32,7 +32,7 @@
       "to": 50149
     }
   ],
-  "contextSensitiveHelpUrl": "https://ALProject1_0920.com/help/",
+  "contextSensitiveHelpUrl": "https://ALProject1.com/help/",
   "showMyCode": true,
   "runtime": "5.0"
 }
