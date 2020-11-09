@@ -72,6 +72,22 @@ page 50103 "Course List"
                     InsertNewRecord();
                 end;
             }
+            action("Export Course Detail (XML)")
+            {
+                trigger OnAction();
+                begin
+                    Xmlport.Run(50106, false, false);
+                end;
+            }
+            action("Export Course Detail (Variable Text)")
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    xmlport.Run(50107, false, false);
+                end;
+            }
         }
     }
     var
@@ -208,4 +224,168 @@ page 50103 "Course List"
         if (PassingRate >= 70) And (Difficulty >= 6) then
             SPA := true;
     end;
+}
+xmlport 50106 "Course Export XML"
+{
+    Direction = Export;
+    Format = Xml;
+    FormatEvaluate = Xml;
+    schema
+    {
+        textelement(Root)
+        {
+            tableelement(Course; Course)
+            {
+                fieldattribute(Code; Course.Code)
+                {
+
+                }
+                fieldattribute(Name; Course.Name)
+                {
+
+                }
+                fieldattribute(Description; Course.Description)
+                {
+
+                }
+                fieldattribute(Type; Course.Type)
+                {
+
+                }
+                fieldattribute(Duration; Course.Duration)
+                {
+
+                }
+                fieldattribute(Price; Course.Price)
+                {
+
+                }
+                fieldattribute(Active; Course.Active)
+                {
+
+                }
+                fieldattribute(Difficulty; Course.Difficulty)
+                {
+
+                }
+                fieldattribute(PassingRate; Course.PassingRate)
+                {
+
+                }
+
+            }
+        }
+    }
+
+    requestpage
+    {
+        layout
+        {
+            area(content)
+            {
+                group(GroupName)
+                {
+                    /*field(Name; SourceExpression)
+                    {
+
+                    }*/
+                }
+            }
+        }
+
+        actions
+        {
+            area(processing)
+            {
+                action(ActionName)
+                {
+
+                }
+            }
+        }
+    }
+
+    var
+        myInt: Integer;
+}
+xmlport 50107 "Course Export Variable"
+{
+    Direction = Export;
+    Format = VariableText;
+    FormatEvaluate = Xml;
+    schema
+    {
+        textelement(Root)
+        {
+            tableelement(Course; Course)
+            {
+                fieldattribute(Code; Course.code)
+                {
+
+                }
+                fieldattribute(Name; Course.Name)
+                {
+
+                }
+                fieldattribute(Description; Course.Description)
+                {
+
+                }
+                fieldattribute(Type; Course.Type)
+                {
+
+                }
+                fieldattribute(Duration; Course.Duration)
+                {
+
+                }
+                fieldattribute(Price; Course.Price)
+                {
+
+                }
+                fieldattribute(Active; Course.Active)
+                {
+
+                }
+                fieldattribute(Difficulty; Course.Difficulty)
+                {
+
+                }
+                fieldattribute(PassingRate; Course.PassingRate)
+                {
+
+                }
+            }
+        }
+    }
+
+    requestpage
+    {
+        layout
+        {
+            area(content)
+            {
+                group(GroupName)
+                {
+                    /*field(Name; SourceExpression)
+                    {
+                    }*/
+                }
+            }
+        }
+
+        actions
+        {
+            area(processing)
+            {
+                action(ActionName)
+                {
+
+                }
+            }
+        }
+    }
+
+    var
+        myInt: Integer;
 }
